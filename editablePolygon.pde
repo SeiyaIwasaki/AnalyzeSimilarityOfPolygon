@@ -60,7 +60,7 @@ class editablePolygon extends Polygon{
 	}
 
 	/** Edit Polygon Method **/
-	private void mousePressed(int mouseX, int mouseY){
+	public void mousePressed(int mouseX, int mouseY){
 		Point vertex;
 		Point offset = getOffset();
 		float distanceVM;
@@ -74,13 +74,13 @@ class editablePolygon extends Polygon{
 		}
 	}
 
-	private void mouseReleased(int mouseX, int mouseY){
+	public void mouseReleased(int mouseX, int mouseY){
 		if(activeVertexIndex_ != -1){
 			activeVertexIndex_ = -1;
 		}
 	}
 
-	private void mouseDragged(int mouseX, int mouseY){
+	public void mouseDragged(int mouseX, int mouseY){
 		Point offset = getOffset();
 		if(activeVertexIndex_ != -1){
 			Point vertex = getVertex(activeVertexIndex_);
