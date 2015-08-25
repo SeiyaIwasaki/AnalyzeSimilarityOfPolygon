@@ -58,6 +58,13 @@ class Polygon extends designInfo{
     public Point getVertex(int index){
         return vertex_[index];
     }
+    public Point[] getActVertex(){
+        Point[] vertex = new Point[vertexSize_];
+        for(int i = 0; i < vertexSize_; i++){
+            vertex[i] = new Point(vertex_[i].x + offset_.x, vertex_[i].y + offset_.y);
+        }
+        return vertex;
+    }
 
 
     public void setOffset(int x, int y){

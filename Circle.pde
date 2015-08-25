@@ -13,9 +13,14 @@ class Circle extends designInfo{
 
     	/** constructor **/
     	Circle(){
-    		x = 0;
-    		y = 0;
+    		centerX_ = 0;
+    		centerY_ = 0;
     		width_ = height_ = 50;
+    	}
+    	Circle(Point p, int d){
+    		centerX_ = p.x;
+    		centerY_ = p.y;
+    		width_ = height_ = d;
     	}
     	Circle(int x, int y, int d){
     		centerX_ = x;
@@ -38,6 +43,27 @@ class Circle extends designInfo{
     	}
 
     	/** method **/
+    	public boolean contains(Point p){
+    		int afterX = p.x - centerX_;
+    		int afterY = (width_ / height_) * (p.y - centerY_);
+
+    		if(afterX * afterX + afterY * afterY <= ceil((width_ * width_) / 4.0)){
+    			return true;
+    		}else{
+    			return false;
+    		}
+    	}
+    	public boolean contains(int x, int y){
+    		int afterX = x - centerX_;
+    		int afterY = (width_ / height_) * (y - centerY_);
+
+    		if(afterX * afterX + afterY * afterY <= ceil((width_ * width_) / 4.0)){
+    			return true;
+    		}else{
+    			return false;
+    		}
+    	}
+
     	public void setCenter(Point p){
     		centerX_ = p.x;
     		centerY_ = p.y;
