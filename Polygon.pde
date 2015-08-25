@@ -3,23 +3,16 @@
     
     2015 Seiya Iwasaki
 *****************************************************/
-import java.awt.Point;
 
-class Polygon{
+class Polygon extends designInfo{
     /** field **/
     private    int        vertexSize_;
-    private    color      color_;
-    private    int        weight_;
-    private    boolean    fillF_;
     private    Point      offset_;
     private    Point[]    vertex_;
     
     /** constructor **/
     Polygon(int vertexSize){
         vertexSize_ = vertexSize;
-        color_ = #000000;
-        weight_ = 2;
-        fillF_ = false;
         offset_ = new Point(0, 0);
         vertex_ = new Point[vertexSize];
         initVertex();
@@ -37,7 +30,7 @@ class Polygon{
     
     /** draw **/
     public void draw(){
-        inputParam();
+        inputDesignInfo();
 
         // draw polygon
         pushMatrix();
@@ -52,18 +45,6 @@ class Polygon{
         popMatrix();
 
     }
-
-    private void inputParam(){
-        smooth();
-        stroke(color_);
-        strokeWeight(weight_);
-        if(fillF_) {
-            noStroke();
-            fill(color_);
-        }else{
-            noFill();
-        }
-    }
     
     /** method **/
     public int getVertexSize(){
@@ -76,30 +57,6 @@ class Polygon{
     }
     public Point getVertex(int index){
         return vertex_[index];
-    }
-
-
-    public void setColor(color c){
-        color_ = c;
-    }
-    public color getColor(){
-        return color_;
-    }
-
-
-    public void setWeight(int w){
-        weight_ = w;
-    }
-    public int getWeight(){
-        return weight_;
-    }
-
-
-    public void fillF(){
-        fillF_ = true;
-    }
-    public void noFillF(){
-        fillF_ = false;
     }
 
 
